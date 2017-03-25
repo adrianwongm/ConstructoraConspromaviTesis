@@ -69,9 +69,9 @@ namespace HotelBooking
     partial void InsertMetro_Area(Metro_Area instance);
     partial void UpdateMetro_Area(Metro_Area instance);
     partial void DeleteMetro_Area(Metro_Area instance);
-    partial void InsertUsuarios(Usuarios instance);
-    partial void UpdateUsuarios(Usuarios instance);
-    partial void DeleteUsuarios(Usuarios instance);
+    partial void InsertSCPV_Usuario_Empleados(SCPV_Usuario_Empleados instance);
+    partial void UpdateSCPV_Usuario_Empleados(SCPV_Usuario_Empleados instance);
+    partial void DeleteSCPV_Usuario_Empleados(SCPV_Usuario_Empleados instance);
     #endregion
 		
 		public HotelBookingDataContext() : 
@@ -208,11 +208,11 @@ namespace HotelBooking
 			}
 		}
 		
-		public System.Data.Linq.Table<Usuarios> Usuarios
+		public System.Data.Linq.Table<SCPV_Usuario_Empleados> SCPV_Usuario_Empleados
 		{
 			get
 			{
-				return this.GetTable<Usuarios>();
+				return this.GetTable<SCPV_Usuario_Empleados>();
 			}
 		}
 	}
@@ -3434,8 +3434,8 @@ namespace HotelBooking
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Usuarios")]
-	public partial class Usuarios : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SCPV_Usuario_Empleados")]
+	public partial class SCPV_Usuario_Empleados : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -3446,7 +3446,11 @@ namespace HotelBooking
 		
 		private string _Password;
 		
-		private System.DateTime _FechaCreacion;
+		private System.Nullable<int> _ID_Empleado;
+		
+		private int _FechaCreacion;
+		
+		private string _Estado;
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
@@ -3458,16 +3462,20 @@ namespace HotelBooking
     partial void OnUsuarioChanged();
     partial void OnPasswordChanging(string value);
     partial void OnPasswordChanged();
-    partial void OnFechaCreacionChanging(System.DateTime value);
+    partial void OnID_EmpleadoChanging(System.Nullable<int> value);
+    partial void OnID_EmpleadoChanged();
+    partial void OnFechaCreacionChanging(int value);
     partial void OnFechaCreacionChanged();
+    partial void OnEstadoChanging(string value);
+    partial void OnEstadoChanged();
     #endregion
 		
-		public Usuarios()
+		public SCPV_Usuario_Empleados()
 		{
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int ID
 		{
 			get
@@ -3487,7 +3495,7 @@ namespace HotelBooking
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Usuario", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Usuario", DbType="VarChar(10)")]
 		public string Usuario
 		{
 			get
@@ -3507,7 +3515,7 @@ namespace HotelBooking
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
 		public string Password
 		{
 			get
@@ -3527,8 +3535,28 @@ namespace HotelBooking
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaCreacion", DbType="DateTime NOT NULL")]
-		public System.DateTime FechaCreacion
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Empleado", DbType="Int")]
+		public System.Nullable<int> ID_Empleado
+		{
+			get
+			{
+				return this._ID_Empleado;
+			}
+			set
+			{
+				if ((this._ID_Empleado != value))
+				{
+					this.OnID_EmpleadoChanging(value);
+					this.SendPropertyChanging();
+					this._ID_Empleado = value;
+					this.SendPropertyChanged("ID_Empleado");
+					this.OnID_EmpleadoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaCreacion", DbType="Int NOT NULL")]
+		public int FechaCreacion
 		{
 			get
 			{
@@ -3543,6 +3571,26 @@ namespace HotelBooking
 					this._FechaCreacion = value;
 					this.SendPropertyChanged("FechaCreacion");
 					this.OnFechaCreacionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estado", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Estado
+		{
+			get
+			{
+				return this._Estado;
+			}
+			set
+			{
+				if ((this._Estado != value))
+				{
+					this.OnEstadoChanging(value);
+					this.SendPropertyChanging();
+					this._Estado = value;
+					this.SendPropertyChanged("Estado");
+					this.OnEstadoChanged();
 				}
 			}
 		}

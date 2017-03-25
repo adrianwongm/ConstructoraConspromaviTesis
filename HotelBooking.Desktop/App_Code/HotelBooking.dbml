@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DB_A15AC8_ATENEA" EntityNamespace="HotelBooking" ContextNamespace="HotelBooking" Class="HotelBookingDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=SQL5033.SmarterASP.NET;Initial Catalog=DB_A15AC8_ATENEA;Persist Security Info=True;User ID=DB_A15AC8_ATENEA_admin;Password=minions2016" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DB_A15AC8_ATENEAConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=SQL5033.SmarterASP.NET;Initial Catalog=DB_A15AC8_ATENEA;Persist Security Info=True;User ID=DB_A15AC8_ATENEA_admin" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DB_A15AC8_ATENEAConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Cities" Member="Cities">
     <Type Name="City">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -156,12 +156,14 @@
       <Association Name="Metro_Area_City" Member="Cities" ThisKey="ID" OtherKey="Metro_Area_ID" Type="City" />
     </Type>
   </Table>
-  <Table Name="dbo.Usuarios" Member="Usuarios">
-    <Type Name="Usuarios">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Usuario" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="Password" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="FechaCreacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+  <Table Name="dbo.SCPV_Usuario_Empleados" Member="SCPV_Usuario_Empleados">
+    <Type Name="SCPV_Usuario_Empleados">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Usuario" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ID_Empleado" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FechaCreacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Estado" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

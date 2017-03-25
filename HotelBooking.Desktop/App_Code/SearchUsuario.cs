@@ -27,12 +27,12 @@ public class SearchUsuario
 
     public HotelBookingDataContext DataContext { get; set; }
 
-    public Usuarios verficaUsuario(string pEmail, string pPassword)
+    public SCPV_Usuario_Empleados verficaUsuario(string pEmail, string pPassword)
     {
-        Usuarios userCliente = null;
+        SCPV_Usuario_Empleados userCliente = null;
         try
         {
-          userCliente =   DataContext.Usuarios.Where(p => p.Usuario == pEmail && p.Password == pPassword).FirstOrDefault();
+          userCliente =   DataContext.SCPV_Usuario_Empleados.Where(p => p.Usuario == pEmail && p.Password == pPassword).FirstOrDefault();
             if(userCliente == null)
             {
                 throw new Exception("No existe el usuario");

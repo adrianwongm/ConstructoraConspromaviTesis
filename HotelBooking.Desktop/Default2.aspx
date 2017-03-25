@@ -2,15 +2,11 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" Runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContentPlaceHolder" Runat="Server">
-  
-            
-
-        
-
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContentPlaceHolder" Runat="Server"> 
+   
     <dx:ASPxFormLayout ID="ASPxFormLayout1" runat="server" Width="100%" Theme="Metropolis">
         <Items>
-            <dx:LayoutGroup ColCount="4">
+            <dx:LayoutGroup ColCount="4" Caption="Datos de usuario">
                 <Items>
                     <dx:LayoutItem Caption="Empleado">
                         <LayoutItemNestedControlCollection>
