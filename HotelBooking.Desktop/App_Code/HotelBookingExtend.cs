@@ -105,10 +105,9 @@ namespace HotelBooking {
         }
     }
 
-   public partial class Usuarios
-    {
-        
-    }
+
+
+
     public partial class Metro_Area {
         public string Map_ImageUrl {
             get {
@@ -130,6 +129,29 @@ namespace HotelBooking {
             get {
                 return Cities.SelectMany(c => c.Hotels).SelectMany(h => h.Rooms).Max(r => r.Nighly_Rate).Value;
             }
+        }
+    }
+
+    public partial class SCPV_Usuario_Empleados
+    {
+
+    }
+
+    public partial class SCPV_Cargo
+    {
+
+    }
+
+    public partial class SCPV_Empresa
+    {
+
+    }
+
+    public partial class SCPV_Empleados
+    {
+        public override string ToString()
+        {
+            return this.NumeroIdentificacion +" - "+this.Apellidos + " " + this.Nombres;
         }
     }
 }

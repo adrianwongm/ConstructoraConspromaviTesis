@@ -78,9 +78,9 @@ namespace HotelBooking
     partial void InsertSCPV_Usuario_Empleados(SCPV_Usuario_Empleados instance);
     partial void UpdateSCPV_Usuario_Empleados(SCPV_Usuario_Empleados instance);
     partial void DeleteSCPV_Usuario_Empleados(SCPV_Usuario_Empleados instance);
-    partial void InsertSPCV_Empleados(SPCV_Empleados instance);
-    partial void UpdateSPCV_Empleados(SPCV_Empleados instance);
-    partial void DeleteSPCV_Empleados(SPCV_Empleados instance);
+    partial void InsertSCPV_Empleados(SCPV_Empleados instance);
+    partial void UpdateSCPV_Empleados(SCPV_Empleados instance);
+    partial void DeleteSCPV_Empleados(SCPV_Empleados instance);
     #endregion
 		
 		public HotelBookingDataContext() : 
@@ -241,12 +241,26 @@ namespace HotelBooking
 			}
 		}
 		
-		public System.Data.Linq.Table<SPCV_Empleados> SPCV_Empleados
+		public System.Data.Linq.Table<SCPV_Empleados> SCPV_Empleados
 		{
 			get
 			{
-				return this.GetTable<SPCV_Empleados>();
+				return this.GetTable<SCPV_Empleados>();
 			}
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_SCPV_Verifica_Usuario")]
+		public ISingleResult<SP_SCPV_Verifica_UsuarioResult> SP_SCPV_Verifica_Usuario([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Usuario", DbType="VarChar(10)")] string usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="VarChar(100)")] string password)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), usuario, password);
+			return ((ISingleResult<SP_SCPV_Verifica_UsuarioResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_SCPV_Ingresa_Usuario")]
+		public ISingleResult<SCPV_Usuario_Empleados> SP_SCPV_Ingresa_Usuario([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Usuario", DbType="VarChar(10)")] string usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="VarChar(100)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_Empleado", DbType="Int")] System.Nullable<int> iD_Empleado, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Estado", DbType="VarChar(1)")] string estado)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), usuario, password, iD_Empleado, estado);
+			return ((ISingleResult<SCPV_Usuario_Empleados>)(result.ReturnValue));
 		}
 	}
 	
@@ -3967,13 +3981,13 @@ namespace HotelBooking
 		
 		private string _Estado;
 		
-		private System.Nullable<int> _FechaCreacion1;
-		
 		private string _UsuarioCreacion;
 		
 		private System.Nullable<int> _FechaModificacion;
 		
 		private string _UsuarioModificacion;
+		
+		private string _FechaCreacion;
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
@@ -3989,14 +4003,14 @@ namespace HotelBooking
     partial void OnID_EmpleadoChanged();
     partial void OnEstadoChanging(string value);
     partial void OnEstadoChanged();
-    partial void OnFechaCreacion1Changing(System.Nullable<int> value);
-    partial void OnFechaCreacion1Changed();
     partial void OnUsuarioCreacionChanging(string value);
     partial void OnUsuarioCreacionChanged();
     partial void OnFechaModificacionChanging(System.Nullable<int> value);
     partial void OnFechaModificacionChanged();
     partial void OnUsuarioModificacionChanging(string value);
     partial void OnUsuarioModificacionChanged();
+    partial void OnFechaCreacionChanging(string value);
+    partial void OnFechaCreacionChanged();
     #endregion
 		
 		public SCPV_Usuario_Empleados()
@@ -4104,26 +4118,6 @@ namespace HotelBooking
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaCreacion1", DbType="Int")]
-		public System.Nullable<int> FechaCreacion1
-		{
-			get
-			{
-				return this._FechaCreacion1;
-			}
-			set
-			{
-				if ((this._FechaCreacion1 != value))
-				{
-					this.OnFechaCreacion1Changing(value);
-					this.SendPropertyChanging();
-					this._FechaCreacion1 = value;
-					this.SendPropertyChanged("FechaCreacion1");
-					this.OnFechaCreacion1Changed();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UsuarioCreacion", DbType="VarChar(10)")]
 		public string UsuarioCreacion
 		{
@@ -4184,6 +4178,26 @@ namespace HotelBooking
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaCreacion", CanBeNull=false)]
+		public string FechaCreacion
+		{
+			get
+			{
+				return this._FechaCreacion;
+			}
+			set
+			{
+				if ((this._FechaCreacion != value))
+				{
+					this.OnFechaCreacionChanging(value);
+					this.SendPropertyChanging();
+					this._FechaCreacion = value;
+					this.SendPropertyChanged("FechaCreacion");
+					this.OnFechaCreacionChanged();
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -4205,8 +4219,8 @@ namespace HotelBooking
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SPCV_Empleados")]
-	public partial class SPCV_Empleados : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SCPV_Empleados")]
+	public partial class SCPV_Empleados : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -4277,7 +4291,7 @@ namespace HotelBooking
     partial void OnUsuarioModificacionChanged();
     #endregion
 		
-		public SPCV_Empleados()
+		public SCPV_Empleados()
 		{
 			OnCreated();
 		}
@@ -4599,6 +4613,50 @@ namespace HotelBooking
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	public partial class SP_SCPV_Verifica_UsuarioResult
+	{
+		
+		private int _RESPUESTA;
+		
+		private string _MENSAJE;
+		
+		public SP_SCPV_Verifica_UsuarioResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RESPUESTA", DbType="Int NOT NULL")]
+		public int RESPUESTA
+		{
+			get
+			{
+				return this._RESPUESTA;
+			}
+			set
+			{
+				if ((this._RESPUESTA != value))
+				{
+					this._RESPUESTA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MENSAJE", DbType="VarChar(17) NOT NULL", CanBeNull=false)]
+		public string MENSAJE
+		{
+			get
+			{
+				return this._MENSAJE;
+			}
+			set
+			{
+				if ((this._MENSAJE != value))
+				{
+					this._MENSAJE = value;
+				}
 			}
 		}
 	}

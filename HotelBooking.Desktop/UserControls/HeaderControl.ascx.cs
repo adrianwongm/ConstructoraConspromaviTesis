@@ -18,7 +18,8 @@ public partial class UserControls_HeaderControl : System.Web.UI.UserControl
             LogonControl.ShowOnPageLoad = false;
         //Carga de controles
         Usuario = new SearchUsuario(this.ToString(), new HotelBooking.HotelBookingDataContext());
-        SCPV_Usuario_Empleados user  = Usuario.verficaUsuario(this.txtEmail.Text.Trim(), this.txtPassword.Text.Trim());
+        SCPV_Usuario_Empleados user  = Usuario.VerficaUsuario2(txtEmail.Text.Trim(), txtPassword.Text.Trim());
+
         Session["userCliente"] = user.Usuario;
 
 
