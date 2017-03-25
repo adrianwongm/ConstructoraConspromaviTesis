@@ -156,14 +156,61 @@
       <Association Name="Metro_Area_City" Member="Cities" ThisKey="ID" OtherKey="Metro_Area_ID" Type="City" />
     </Type>
   </Table>
+  <Table Name="dbo.SCPV_Cargo" Member="SCPV_Cargo">
+    <Type Name="SCPV_Cargo">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Codigo" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Estado" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="FechaCreacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UsuarioCreacion" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="FechaModificacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UsuarioModificacion" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SCPV_Empresa" Member="SCPV_Empresa">
+    <Type Name="SCPV_Empresa">
+      <Column Name="ID_Empresa" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre_Empresa" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Direccion_Empresa" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Logo_Empresa" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Ruc_Empresa" Type="System.String" DbType="VarChar(13)" CanBeNull="true" />
+      <Column Name="FechaCreacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UsuarioCreacion" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="FechaModificacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UsuarioModificacion" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.SCPV_Usuario_Empleados" Member="SCPV_Usuario_Empleados">
     <Type Name="SCPV_Usuario_Empleados">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Usuario" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
       <Column Name="Password" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="ID_Empleado" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="FechaCreacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Estado" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaCreacion1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UsuarioCreacion" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="FechaModificacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UsuarioModificacion" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SPCV_Empleados" Member="SPCV_Empleados">
+    <Type Name="SPCV_Empleados">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombres" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Apellidos" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ID_Cargo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NumeroIdentificacion" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="ID_Empresa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_Next" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EsJefe" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="EsGerente" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="EsGerenteGeneral" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Estado" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="FechaCreacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UsuarioCreacion" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="FechaModificacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UsuarioModificacion" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>
