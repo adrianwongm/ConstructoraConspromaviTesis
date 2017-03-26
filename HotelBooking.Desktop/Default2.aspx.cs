@@ -94,7 +94,46 @@ public partial class Default2 : System.Web.UI.Page
                 user.ID_Empleado = int.Parse(this.cmbEmpleado.Value.ToString());
                 userGrabar.addUsuario(user);
                 cargaInicialDatosUsuarios();
-            } 
+                this.grdListadoUsuarios.JSProperties["cpGrabar"] = "OK";
+            }
+            else if (e.Parameters == "Modificar") {
+                SearchUsuario userGrabar = new SearchUsuario(this.ToString(), new HotelBooking.HotelBookingDataContext());
+                SCPV_Usuario_Empleados user = new SCPV_Usuario_Empleados();
+                user.Usuario = this.txtUsuario.Text;
+                user.Password = this.txtPassword.Text;
+                user.Estado = this.cmbEstado.Value.ToString(); 
+                userGrabar.updateUsuario(user);
+                cargaInicialDatosUsuarios();
+                this.grdListadoUsuarios.JSProperties["cpModificar"] = "OK";
+            }
+        }
+        catch (Exception)
+        {
+            if (e.Parameters == "Grabar")
+            {
+                this.grdListadoUsuarios.JSProperties["cpGrabar"] = "ERROR";
+            }
+            else if (e.Parameters == "Modificar")
+            {
+                this.grdListadoUsuarios.JSProperties["cpModificar"] = "ERROR";
+            }
+
+                throw;
+        }
+    }
+
+
+
+
+    protected void btnCancelar_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            this.txtPassword.Text = "";
+            this.txtUsuario.Text = "";
+            this.cmbEmpleado.SelectedIndex = - 1;
+            this.cmbEstado.SelectedIndex = 0;
+            this.grdListadoUsuarios.Selection.UnselectAll();
         }
         catch (Exception)
         {

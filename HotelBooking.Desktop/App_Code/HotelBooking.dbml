@@ -181,19 +181,6 @@
       <Column Name="UsuarioModificacion" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.SCPV_Usuario_Empleados" Member="SCPV_Usuario_Empleados">
-    <Type Name="SCPV_Usuario_Empleados" Id="ID1">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Usuario" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="Password" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="ID_Empleado" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Estado" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
-      <Column Name="UsuarioCreacion" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="FechaModificacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="UsuarioModificacion" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Member="FechaCreacion" Type="System.String" CanBeNull="false" />
-    </Type>
-  </Table>
   <Table Name="dbo.SCPV_Empleados" Member="SCPV_Empleados">
     <Type Name="SCPV_Empleados">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -213,19 +200,48 @@
       <Column Name="UsuarioModificacion" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.SCPV_Usuario_Empleados" Member="SCPV_Usuario_Empleados">
+    <Type Name="SCPV_Usuario_Empleados">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Usuario" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ID_Empleado" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Estado" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaCreacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UsuarioCreacion" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="FechaModificacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UsuarioModificacion" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.SP_SCPV_Actualiza_Usuario" Method="SP_SCPV_Actualiza_Usuario">
+    <Parameter Name="Usuario" Parameter="usuario" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Estado" Parameter="estado" Type="System.String" DbType="VarChar(1)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_SCPV_Ingresa_Usuario" Method="SP_SCPV_Ingresa_Usuario">
+    <Parameter Name="Usuario" Parameter="usuario" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="ID_Empleado" Parameter="iD_Empleado" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Estado" Parameter="estado" Type="System.String" DbType="VarChar(1)" />
+    <ElementType Name="SP_SCPV_Ingresa_UsuarioResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Usuario" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ID_Empleado" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Estado" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaCreacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UsuarioCreacion" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="FechaModificacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UsuarioModificacion" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.SP_SCPV_Verifica_Usuario" Method="SP_SCPV_Verifica_Usuario">
-    <Parameter Name="Usuario" Parameter="usuario" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="Usuario" Parameter="usuario" Type="System.String" DbType="VarChar(30)" />
     <Parameter Name="Password" Parameter="password" Type="System.String" DbType="VarChar(100)" />
     <ElementType Name="SP_SCPV_Verifica_UsuarioResult">
       <Column Name="RESPUESTA" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="MENSAJE" Type="System.String" DbType="VarChar(17) NOT NULL" CanBeNull="false" />
     </ElementType>
-  </Function>
-  <Function Name="dbo.SP_SCPV_Ingresa_Usuario" Method="SP_SCPV_Ingresa_Usuario">
-    <Parameter Name="Usuario" Parameter="usuario" Type="System.String" DbType="VarChar(10)" />
-    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="ID_Empleado" Parameter="iD_Empleado" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Estado" Parameter="estado" Type="System.String" DbType="VarChar(1)" />
-    <ElementType IdRef="ID1" />
   </Function>
 </Database>

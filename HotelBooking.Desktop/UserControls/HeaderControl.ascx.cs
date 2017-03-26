@@ -11,7 +11,15 @@ public partial class UserControls_HeaderControl : System.Web.UI.UserControl
     public SearchUsuario Usuario { get; set; }
     protected void Page_Load(object sender, EventArgs e)
     {
+        try
+        {
+            visiblemenu();
+        }
+        catch (Exception)
+        {
 
+            throw;
+        }
     }
     protected void btnLoginNow_Click(object sender, EventArgs e) {
         if(Captcha.IsValid)
@@ -20,8 +28,27 @@ public partial class UserControls_HeaderControl : System.Web.UI.UserControl
         Usuario = new SearchUsuario(this.ToString(), new HotelBooking.HotelBookingDataContext());
         SCPV_Usuario_Empleados user  = Usuario.VerficaUsuario2(txtEmail.Text.Trim(), txtPassword.Text.Trim());
 
-        Session["userCliente"] = user.Usuario;
+        Session["userCliente"] = user;
 
+        visiblemenu();
+    }
 
+    public void visiblemenu() {
+        if (Session["userCliente"] == null)
+        {
+            this.mMain.Visible = false;
+        }
+        else
+        {
+            var UsuarioSessionVar = (SCPV_Usuario_Empleados)Session["userCliente"];
+            if (UsuarioSessionVar.ID_Empleado > 0)
+            {
+                this.mMain.Visible = true;
+            }
+            else
+            {
+                this.mMain.Visible = false;
+            }
+        }
     }
 }

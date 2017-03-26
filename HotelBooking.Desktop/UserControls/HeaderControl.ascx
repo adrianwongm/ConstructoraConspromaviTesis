@@ -24,6 +24,56 @@
         </div>
         <div class="clear"></div>
     </div>
+     <div class="content-сolumn">
+         <dx:ASPxMenu ID="mMain" ClientInstanceName="mMain" runat="server" AllowSelectItem="True" ShowPopOutImages="True" Theme="Moderno" >
+            <Items>
+                <dx:MenuItem Text="Home">
+                    <Items>
+                        <dx:MenuItem Text="News">
+                            <Items>
+                                <dx:MenuItem Text="For Developers">
+                                </dx:MenuItem>
+                                <dx:MenuItem Text="Website news">
+                                </dx:MenuItem>
+                            </Items>
+                        </dx:MenuItem>
+                        <dx:MenuItem Text="Our Mission">
+                        </dx:MenuItem>
+                        <dx:MenuItem Text="Our Customers">
+                        </dx:MenuItem>
+                    </Items>
+                </dx:MenuItem>
+                <dx:MenuItem Text="Products">
+                    <Items>
+                        <dx:MenuItem Text="Subscriptions / Packs">
+                        </dx:MenuItem>
+                        <dx:MenuItem Text=".NET Windows Forms Components">
+                        </dx:MenuItem>
+                        <dx:MenuItem Text="Reporting / Printing Suites">
+                        </dx:MenuItem>
+                        <dx:MenuItem Text="VCL Components and Tools">
+                        </dx:MenuItem>
+                        <dx:MenuItem Text="ASP.NET Components">
+                        </dx:MenuItem>
+                    </Items>
+                </dx:MenuItem>
+                <dx:MenuItem Text="Configuracion">
+                    <Items>
+                        <dx:MenuItem Text="Usuarios" NavigateUrl="~/Default2.aspx">
+                        </dx:MenuItem>
+                        <dx:MenuItem Text="Documentation">
+                        </dx:MenuItem>
+                        <dx:MenuItem Text="Support Center">
+                        </dx:MenuItem>
+                        <dx:MenuItem Text="Newsgroups">
+                        </dx:MenuItem>
+                        <dx:MenuItem Text="Best Practicies">
+                        </dx:MenuItem>
+                    </Items>
+                </dx:MenuItem>
+            </Items>
+        </dx:ASPxMenu>
+     </div>
     <dx:ASPxPopupControl ID="LogonControl" runat="server" ClientInstanceName="pcLogin" PopupHorizontalAlign="WindowCenter" ShowHeader="false"
         PopupVerticalAlign="WindowCenter" Modal="True" ShowCloseButton="False" Width="608px" ShowPageScrollbarWhenModal="true">
 	    <ContentCollection>

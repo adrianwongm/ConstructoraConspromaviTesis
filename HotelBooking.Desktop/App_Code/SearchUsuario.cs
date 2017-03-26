@@ -110,4 +110,19 @@ public class SearchUsuario
         return bandera;
     }
 
+    public bool updateUsuario(SCPV_Usuario_Empleados user)
+    {
+        bool bandera = false;
+        try
+        {
+            DataContext.SP_SCPV_Actualiza_Usuario(user.Usuario, user.Password, user.Estado);
+            bandera = true;
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
+        return bandera;
+    }
 }
