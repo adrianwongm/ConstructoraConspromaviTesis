@@ -27,12 +27,12 @@ public class SearchEmpleado
 
     public HotelBookingDataContext DataContext { get; set; }
 
-    public SCPV_Empleados getEmpleadoByID(int pID_Empleado)
+    public SCPV_Empleados getEmpleadoByID(int pID_Empleado, string pEstado)
     {
         SCPV_Empleados empleado = null;
         try
         {
-            empleado = DataContext.SCPV_Empleados.Where(p => p.ID == pID_Empleado).FirstOrDefault();
+            empleado = DataContext.SCPV_Empleados.Where(p => p.ID == pID_Empleado && p.Estado == pEstado).FirstOrDefault();
         }
         catch (Exception)
         {
@@ -40,5 +40,20 @@ public class SearchEmpleado
             throw;
         }
         return empleado;
+    }
+
+    public List<SCPV_Empleados> getListEmpleado(string pEstado)
+    {
+        List<SCPV_Empleados> listempleado = null;
+        try
+        {
+            listempleado = DataContext.SCPV_Empleados.Where(p => p.Estado == pEstado).ToList();
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
+        return listempleado;
     }
 }

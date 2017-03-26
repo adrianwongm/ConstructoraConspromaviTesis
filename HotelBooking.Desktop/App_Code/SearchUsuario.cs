@@ -94,4 +94,20 @@ public class SearchUsuario
         }
         return userClienteRetorno;
     }
+
+    public bool addUsuario(SCPV_Usuario_Empleados user) {
+        bool bandera = false;
+        try
+        {
+           DataContext.SP_SCPV_Ingresa_Usuario(user.Usuario, user.Password, user.ID_Empleado, user.Estado);
+            bandera = true;
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
+        return bandera;
+    }
+
 }

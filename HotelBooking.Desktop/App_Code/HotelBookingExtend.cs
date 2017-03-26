@@ -153,9 +153,17 @@ namespace HotelBooking {
 
     public partial class SCPV_Empleados
     {
+        public string Empleado_Nombres
+        {
+            get
+            {
+                return this.NumeroIdentificacion + " - " + this.Apellidos + " " + this.Nombres;
+            }
+        }
+
         public override string ToString()
         {
-            return this.NumeroIdentificacion +" - "+this.Apellidos + " " + this.Nombres;
+            return this.NumeroIdentificacion + " - " + this.Apellidos + " " + this.Nombres;
         }
     }
 }
