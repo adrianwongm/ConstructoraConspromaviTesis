@@ -35,7 +35,26 @@
                     <dx:LayoutItem Caption="Estado">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer runat="server">
-                                <dx:ASPxComboBox runat="server" ID="cmbEstado" ClientInstanceName="cmbEstado"></dx:ASPxComboBox>
+                                <dx:ASPxComboBox runat="server" ID="cmbEstado" ClientInstanceName="cmbEstado" Theme="Metropolis"></dx:ASPxComboBox>
+                            </dx:LayoutItemNestedControlContainer>
+                        </LayoutItemNestedControlCollection>
+                    </dx:LayoutItem>
+                </Items>
+            </dx:LayoutGroup>
+            <dx:LayoutGroup Caption="REGISTROS">
+                <Items>
+                    <dx:LayoutItem ShowCaption="False">
+                        <LayoutItemNestedControlCollection>
+                            <dx:LayoutItemNestedControlContainer runat="server">
+                                <dx:ASPxGridView ID="grdListadoUsuarios" runat="server" ClientInstanceName="grdListadoUsuarios"
+                                    Theme="SoftOrange" OnDataBinding="grdListadoUsuarios_DataBinding" Width="100%">
+                                    <Columns>
+                                        <dx:GridViewCommandColumn ShowSelectButton="true"></dx:GridViewCommandColumn>
+                                        <dx:GridViewDataColumn Caption="Login" FieldName="Usuario"></dx:GridViewDataColumn>
+                                        <dx:GridViewDataColumn Caption="Empleado" FieldName="Empleado_Nombres"></dx:GridViewDataColumn>
+                                        <dx:GridViewDataColumn Caption="Estado" FieldName="Estado"></dx:GridViewDataColumn>
+                                    </Columns>
+                                </dx:ASPxGridView>
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>

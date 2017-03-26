@@ -134,7 +134,8 @@ namespace HotelBooking {
 
     public partial class SCPV_Usuario_Empleados
     {
-
+        public SCPV_Empleados Empleado { get; set; }
+        public string Empleado_Nombres { get; set; }
     }
 
     public partial class SCPV_Cargo
@@ -144,7 +145,10 @@ namespace HotelBooking {
 
     public partial class SCPV_Empresa
     {
-
+        public override string ToString()
+        {
+            return this.Ruc_Empresa + "-" + this.Nombre_Empresa;
+        }
     }
 
     public partial class SCPV_Empleados

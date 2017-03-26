@@ -27,6 +27,33 @@ public class SearchUsuario
 
     public HotelBookingDataContext DataContext { get; set; }
 
+    public List<SCPV_Usuario_Empleados>getListEmpleadosByEmpresa(int pID_Empresa, string pEstado)
+    {
+        try
+        {
+            var listadoUsuarios = from p in DataContext.SCPV_Empleados
+                                  join x in DataContext.SCPV_Usuario_Empleados on p.ID equals x.ID_Empleado
+                                  where x.Estado == pEstado
+                                  select new 
+                                  {
+                                      Empleado =    p.Nombres +" "+ p.Apellidos,
+                                      ID = x.ID,
+                                      Estado = x.Estado,
+                                      Usuario = x.Usuario,
+                                      ID_Empleado = x.ID_Empleado
+                                  };
+            List<SCPV_Usuario_Empleados> users = listadoUsuarios.AsEnumerable().Select(item => new SCPV_Usuario_Empleados()
+            { Empleado_Nombres = item.Empleado, ID = item.ID, Estado = item.Estado, Usuario = item.Usuario, ID_Empleado = item.ID_Empleado }).ToList();
+
+            return users;
+        }
+        catch (Exception ex)
+        {
+
+            throw;
+        }
+    }
+
     public SCPV_Usuario_Empleados VerficaUsuario(string pEmail, string pPassword)
     {
         SCPV_Usuario_Empleados userCliente = null;
