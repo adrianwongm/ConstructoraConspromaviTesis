@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Default2 : System.Web.UI.Page
+public partial class UsuarioInterno : System.Web.UI.Page
 {
     public List<HotelBooking.SCPV_Usuario_Empleados> listadoUsuarioEmpleados
     {

@@ -17,7 +17,7 @@ namespace HotelBooking {
         //public HotelBookingDataContextExt() :base(ConnectionString.Replace("(local)", "SQL5033.SmarterASP.NET")) { }
 
         //Linea para entorno de desarrollo
-          public HotelBookingDataContextExt() : base(ConnectionString.Replace(@"(localdb)\mssqllocaldb", "SQL5033.SmarterASP.NET")) { }
+           public HotelBookingDataContextExt() : base(ConnectionString.Replace(@"(localdb)\mssqllocaldb", "SQL5033.SmarterASP.NET")) { }
         
     }
 

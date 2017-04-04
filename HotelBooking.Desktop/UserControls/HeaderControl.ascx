@@ -59,7 +59,7 @@
                 </dx:MenuItem>
                 <dx:MenuItem Text="Configuracion">
                     <Items>
-                        <dx:MenuItem Text="Usuarios" NavigateUrl="~/Default2.aspx">
+                        <dx:MenuItem Text="Usuarios" NavigateUrl="~/UsuarioInterno.aspx">
                         </dx:MenuItem>
                         <dx:MenuItem Text="Documentation">
                         </dx:MenuItem>
