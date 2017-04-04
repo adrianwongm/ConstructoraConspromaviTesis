@@ -11,7 +11,7 @@
                     <dx:LayoutItem>
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer runat="server">
-                                <dx:ASPxTextBox runat="server" ID="ASPxFormLayout1_E2"></dx:ASPxTextBox>
+                                <dx:ASPxTextBox runat="server" ID="txtCodigo" ClientInstanceName="txtCodigo"></dx:ASPxTextBox>
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
