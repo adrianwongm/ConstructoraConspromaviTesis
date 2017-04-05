@@ -215,7 +215,7 @@
   </Table>
   <Table Name="dbo.SCPV_Perfiles" Member="SCPV_Perfiles">
     <Type Name="SCPV_Perfiles">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Codigo" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
       <Column Name="Descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Estado" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />

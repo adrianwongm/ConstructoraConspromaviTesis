@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12.875, 18.875" name="HotelBooking">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12.875, 20.75" name="HotelBooking">
   <DataContextMoniker Name="/HotelBookingDataContext" />
   <nestedChildShapes>
     <classShape Id="8eb42163-e92c-4c1c-b09c-a3ebce169277" absoluteBounds="1, 0.5, 2, 2.1554996744791666">
@@ -102,7 +102,7 @@
         <classShapeMoniker Id="f710c14a-e0d8-44d5-b4dd-89755dc99ea2" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.75 : 2.84059895833333); (9.75 : 2.84059895833333)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.75 : 2.84059895833333); (6.35416666666667 : 2.84059895833333 : JumpStart); (6.52083333333333 : 2.84059895833333 : JumpEnd); (6.54166666666667 : 2.84059895833333 : JumpStart); (6.70833333333333 : 2.84059895833333 : JumpEnd); (9.75 : 2.84059895833333)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/HotelBookingDataContext/Room/Room_Reservation" />
       <nodes>
         <classShapeMoniker Id="8160649a-37d7-4c0c-991d-2d561b82bf55" />
@@ -181,10 +181,10 @@
         <elementListCompartment Id="a57cb761-3e1a-4c89-9430-0a346752bb66" absoluteBounds="3.8899999999999997, 11.585, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="fb9d94d5-7b4c-4859-87d7-9dc8e9d95b5c" absoluteBounds="5.125, 16.25, 2, 2.3478011067708335">
+    <classShape Id="9ff06945-8d61-4804-b7e9-85c55f571d07" absoluteBounds="5, 18.125, 2, 2.3478011067708335">
       <DataClassMoniker Name="/HotelBookingDataContext/SCPV_Perfiles" />
       <nestedChildShapes>
-        <elementListCompartment Id="4724d653-bfa4-4054-b9cf-234a9e66acb6" absoluteBounds="5.14, 16.71, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="17ced5dc-5241-451b-a04b-9c4e513bb873" absoluteBounds="5.015, 18.585, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

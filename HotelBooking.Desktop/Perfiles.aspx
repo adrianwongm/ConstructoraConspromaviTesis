@@ -4,6 +4,24 @@
     <script src="Scripts/jquery-3.1.0.min.js"></script>
 
     <script> 
+        function avisoGrabacion(mensaje, numProveedor) {
+            if (mensaje == "OK") {
+                alert(mensaje + "PROVEEDOR: " + numProveedor);
+            }
+            else if (mensaje == "ERROR") {
+                alert(numProveedor);
+            }
+        }
+
+        function avisoModificacion(mensaje, numProveedor) {
+            if (mensaje == "OK") {
+                //Imprimir
+                alert(mensaje + " MODIFICACION DE PRODUCTO : " + numProveedor);
+            }
+            else if (mensaje == "ERROR") {
+                alert(numProveedor);
+            }
+        }
 
         function editar(codigo, VisibleIndex) {
             sampleGrid.UnselectAllRowsOnPage();
@@ -54,12 +72,25 @@
 
         }
 
-
+        function sampleGrid_EndCallback(s, e) {
+            //Objeto de retorno cpPerfil
+            if (sampleGrid.cpPerfil != null && sampleGrid.cpPerfil != undefined && sampleGrid.cpPerfil != "") {
+                ASPxClientEdit.ClearEditorsInContainer(formLayout.GetMainElement()); //formLayout.GetMainElement()
+                var objPerfil = JSON.parse(sampleGrid.cpPerfil);
+                tbCodigo.SetText(objPerfil.Codigo);
+                tbDescripcion.SetText(objPerfil.Descripcion);
+                cmbEstado.SetValue(objPerfil.Estado);
+                btnNuevo.SetEnabled(false);
+                btnGrabar.SetEnabled(false);
+                btnModificar.SetEnabled(true);
+                sampleGrid.cpProducto = null;
+            }
+        }
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContentPlaceHolder" Runat="Server">
 
-    <dx:ASPxFormLayout ID="ASPxFormLayout1" runat="server" Theme="SoftOrange"> 
+    <dx:ASPxFormLayout ID="ASPxFormLayout1" runat="server" Theme="SoftOrange" ClientInstanceName="formLayout"> 
         <Items>
             <dx:LayoutGroup ColCount="5">
                 <Items>
