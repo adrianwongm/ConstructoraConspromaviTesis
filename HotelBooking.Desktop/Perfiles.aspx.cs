@@ -11,4 +11,24 @@ public partial class Perfiles : System.Web.UI.Page
     {
 
     }
+
+    protected void btnNuevo_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void btnGrabar_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void btnModificar_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void btnCancelar_Click(object sender, EventArgs e)
+    {
+
+    }
 }
