@@ -2,7 +2,17 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" Runat="Server">
     <script src="Scripts/jquery-3.1.0.min.js"></script>
-    <script>
+
+    <script> 
+
+        function editar(codigo, VisibleIndex) {
+            sampleGrid.UnselectAllRowsOnPage();
+            sampleGrid.SelectRowOnPage(VisibleIndex);
+            if (!sampleGrid.InCallback()) {
+                sampleGrid.PerformCallback("CARGA_DATOS|" + codigo);
+            }
+        }
+
         function UpdateGridHeight() {
             sampleGrid.SetHeight(0);
             var containerHeight = ASPxClientUtils.GetDocumentClientHeight();
@@ -88,26 +98,26 @@
                                 <table>
                                     <tr>
                                         <td style="padding-right: 10px">
-                                            <dx:ASPxButton runat="server" Text="Nuevo" Theme="PlasticBlue" ID="btnNuevo" CausesValidation="false" UseSubmitBehavior="false" AutoPostBack="true"
+                                            <dx:ASPxButton runat="server" Text="Nuevo" Theme="SoftOrange" ID="btnNuevo" CausesValidation="false" UseSubmitBehavior="false" AutoPostBack="true"
                                                 ClientInstanceName="btnNuevo" OnClick="btnNuevo_Click">
                                                 <%--<ClientSideEvents Click="btnNuevo_Click" />--%>
                                             </dx:ASPxButton>
                                         </td>
                                         <td style="padding-right: 10px">
-                                            <dx:ASPxButton runat="server" Text="Grabar" Theme="PlasticBlue" ID="btnGrabar" CausesValidation="true" UseSubmitBehavior="false" AutoPostBack="true"
+                                            <dx:ASPxButton runat="server" Text="Grabar" Theme="SoftOrange" ID="btnGrabar" CausesValidation="true" UseSubmitBehavior="false" AutoPostBack="true"
                                                 ClientInstanceName="btnGrabar" ClientEnabled="false" OnClick="btnGrabar_Click">
                                                 <ClientSideEvents Click="btnGrabar_Click" />
                                             </dx:ASPxButton>
                                         </td>
                                         <td style="padding-right: 10px">
-                                            <dx:ASPxButton runat="server" Text="Modificar" Theme="PlasticBlue" ID="btnModificar" OnClick="btnModificar_Click"
+                                            <dx:ASPxButton runat="server" Text="Modificar" Theme="SoftOrange" ID="btnModificar" OnClick="btnModificar_Click"
                                                 ClientInstanceName="btnModificar" CausesValidation="true" UseSubmitBehavior="false" AutoPostBack="true"
                                                 ClientEnabled="false">
                                                 <ClientSideEvents Click="btnModificar_Click" />
                                             </dx:ASPxButton>
                                         </td>
                                         <td style="padding-right: 10px">
-                                            <dx:ASPxButton runat="server" Text="Cancelar" Theme="PlasticBlue" ID="btnCancelar" CausesValidation="false"
+                                            <dx:ASPxButton runat="server" Text="Cancelar" Theme="SoftOrange" ID="btnCancelar" CausesValidation="false"
                                                 UseSubmitBehavior="false" AutoPostBack="true" OnClick="btnCancelar_Click"
                                                 ClientInstanceName="btnCancelar">
                                                 <%--<ClientSideEvents Click="btnCancelar_Click" />--%>
@@ -126,7 +136,7 @@
                     <dx:LayoutItem ShowCaption="False" Width="100%">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer>
-                                <dx:ASPxGridView runat="server" Width="100%" ID="ASPxGridView1" ClientInstanceName="sampleGrid" Theme="MetropolisBlue"
+                                <dx:ASPxGridView runat="server" Width="100%" ID="ASPxGridView1" ClientInstanceName="sampleGrid" Theme="SoftOrange"
                                     OnDataBinding="ASPxGridView1_DataBinding" OnCustomCallback="ASPxGridView1_CustomCallback" OnRowDeleting="ASPxGridView1_RowDeleting"
                                     AutoGenerateColumns="False" KeyFieldName="ID" EnableRowsCache="false">
                                     <%--<Settings VerticalScrollBarMode="Visible" VerticalScrollableHeight="300" />--%>

@@ -81,6 +81,9 @@ namespace HotelBooking
     partial void InsertSCPV_Usuario_Empleados(SCPV_Usuario_Empleados instance);
     partial void UpdateSCPV_Usuario_Empleados(SCPV_Usuario_Empleados instance);
     partial void DeleteSCPV_Usuario_Empleados(SCPV_Usuario_Empleados instance);
+    partial void InsertSCPV_Perfiles(SCPV_Perfiles instance);
+    partial void UpdateSCPV_Perfiles(SCPV_Perfiles instance);
+    partial void DeleteSCPV_Perfiles(SCPV_Perfiles instance);
     #endregion
 		
 		public HotelBookingDataContext() : 
@@ -246,6 +249,14 @@ namespace HotelBooking
 			get
 			{
 				return this.GetTable<SCPV_Usuario_Empleados>();
+			}
+		}
+		
+		public System.Data.Linq.Table<SCPV_Perfiles> SCPV_Perfiles
+		{
+			get
+			{
+				return this.GetTable<SCPV_Perfiles>();
 			}
 		}
 		
@@ -4599,6 +4610,236 @@ namespace HotelBooking
 					this._UsuarioModificacion = value;
 					this.SendPropertyChanged("UsuarioModificacion");
 					this.OnUsuarioModificacionChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SCPV_Perfiles")]
+	public partial class SCPV_Perfiles : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _Codigo;
+		
+		private string _Descripcion;
+		
+		private string _Estado;
+		
+		private string _UsuarioCreacion;
+		
+		private System.Nullable<System.DateTime> _FechaCreacion;
+		
+		private string _UsuarioModificacion;
+		
+		private System.Nullable<System.DateTime> _FechaModificacion;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnCodigoChanging(string value);
+    partial void OnCodigoChanged();
+    partial void OnDescripcionChanging(string value);
+    partial void OnDescripcionChanged();
+    partial void OnEstadoChanging(string value);
+    partial void OnEstadoChanged();
+    partial void OnUsuarioCreacionChanging(string value);
+    partial void OnUsuarioCreacionChanged();
+    partial void OnFechaCreacionChanging(System.Nullable<System.DateTime> value);
+    partial void OnFechaCreacionChanged();
+    partial void OnUsuarioModificacionChanging(string value);
+    partial void OnUsuarioModificacionChanged();
+    partial void OnFechaModificacionChanging(System.Nullable<System.DateTime> value);
+    partial void OnFechaModificacionChanged();
+    #endregion
+		
+		public SCPV_Perfiles()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codigo", DbType="VarChar(10)")]
+		public string Codigo
+		{
+			get
+			{
+				return this._Codigo;
+			}
+			set
+			{
+				if ((this._Codigo != value))
+				{
+					this.OnCodigoChanging(value);
+					this.SendPropertyChanging();
+					this._Codigo = value;
+					this.SendPropertyChanged("Codigo");
+					this.OnCodigoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(50)")]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this.OnDescripcionChanging(value);
+					this.SendPropertyChanging();
+					this._Descripcion = value;
+					this.SendPropertyChanged("Descripcion");
+					this.OnDescripcionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estado", DbType="VarChar(1)")]
+		public string Estado
+		{
+			get
+			{
+				return this._Estado;
+			}
+			set
+			{
+				if ((this._Estado != value))
+				{
+					this.OnEstadoChanging(value);
+					this.SendPropertyChanging();
+					this._Estado = value;
+					this.SendPropertyChanged("Estado");
+					this.OnEstadoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UsuarioCreacion", DbType="VarChar(50)")]
+		public string UsuarioCreacion
+		{
+			get
+			{
+				return this._UsuarioCreacion;
+			}
+			set
+			{
+				if ((this._UsuarioCreacion != value))
+				{
+					this.OnUsuarioCreacionChanging(value);
+					this.SendPropertyChanging();
+					this._UsuarioCreacion = value;
+					this.SendPropertyChanged("UsuarioCreacion");
+					this.OnUsuarioCreacionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaCreacion", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FechaCreacion
+		{
+			get
+			{
+				return this._FechaCreacion;
+			}
+			set
+			{
+				if ((this._FechaCreacion != value))
+				{
+					this.OnFechaCreacionChanging(value);
+					this.SendPropertyChanging();
+					this._FechaCreacion = value;
+					this.SendPropertyChanged("FechaCreacion");
+					this.OnFechaCreacionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UsuarioModificacion", DbType="VarChar(50)")]
+		public string UsuarioModificacion
+		{
+			get
+			{
+				return this._UsuarioModificacion;
+			}
+			set
+			{
+				if ((this._UsuarioModificacion != value))
+				{
+					this.OnUsuarioModificacionChanging(value);
+					this.SendPropertyChanging();
+					this._UsuarioModificacion = value;
+					this.SendPropertyChanged("UsuarioModificacion");
+					this.OnUsuarioModificacionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaModificacion", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FechaModificacion
+		{
+			get
+			{
+				return this._FechaModificacion;
+			}
+			set
+			{
+				if ((this._FechaModificacion != value))
+				{
+					this.OnFechaModificacionChanging(value);
+					this.SendPropertyChanging();
+					this._FechaModificacion = value;
+					this.SendPropertyChanged("FechaModificacion");
+					this.OnFechaModificacionChanged();
 				}
 			}
 		}
