@@ -77,6 +77,7 @@ public partial class Perfiles : System.Web.UI.Page
             }
             this.tbCodigo.Text = "";
             this.tbDescripcion.Text = "";
+            this.tbCodigo.ReadOnly = false;
         }
         catch (Exception)
         {
@@ -196,8 +197,8 @@ public partial class Perfiles : System.Web.UI.Page
             {
                 string[] datos = e.Parameters.Split('|');
                 var codigo = int.Parse(datos[1]);
-                SCPV_Perfiles producto = this.listadoPerfiles.Where(x => x.ID == codigo).FirstOrDefault();
-                this.ASPxGridView1.JSProperties["cpPerfil"] = new JavaScriptSerializer().Serialize(producto);
+                SCPV_Perfiles perfil = this.listadoPerfiles.Where(x => x.ID == codigo).FirstOrDefault();
+                this.ASPxGridView1.JSProperties["cpPerfil"] = new JavaScriptSerializer().Serialize(perfil);
             }
         }
         catch (Exception ex)

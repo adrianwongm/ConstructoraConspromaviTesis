@@ -4,6 +4,24 @@
     <script src="Scripts/jquery-3.1.0.min.js"></script>
 
     <script> 
+
+        function sampleGrid_RowDblClick(s, e) {
+            sampleGrid.GetSelectedFieldValues('Codigo;Descripcion;Estado', OnGetSelectedFieldValuesCommodities);
+        }
+
+        function OnGetSelectedFieldValuesCommodities(selectedValues) {
+            if (selectedValues.length == 0) return;
+            for (i = 0; i < selectedValues.length; i++) { 
+                tbCodigo.SetText(selectedValues[i][0]);
+                tbDescripcion.SetText(selectedValues[i][1]);
+                cmbEstado.SetValue(selectedValues[i][2]);
+                btnNuevo.SetEnabled(false);
+                btnGrabar.SetEnabled(false);
+                btnModificar.SetEnabled(true);
+                tbCodigo.GetInputElement().readOnly = true;
+            }
+        }
+
         function avisoGrabacion(mensaje, numProveedor) {
             if (mensaje == "OK") {
                 alert(mensaje + "PROVEEDOR: " + numProveedor);
@@ -75,15 +93,16 @@
         function sampleGrid_EndCallback(s, e) {
             //Objeto de retorno cpPerfil
             if (sampleGrid.cpPerfil != null && sampleGrid.cpPerfil != undefined && sampleGrid.cpPerfil != "") {
-                ASPxClientEdit.ClearEditorsInContainer(formLayout.GetMainElement()); //formLayout.GetMainElement()
+                //ASPxClientEdit.ClearEditorsInContainer(formLayout.GetMainElement()); //formLayout.GetMainElement()
                 var objPerfil = JSON.parse(sampleGrid.cpPerfil);
                 tbCodigo.SetText(objPerfil.Codigo);
                 tbDescripcion.SetText(objPerfil.Descripcion);
                 cmbEstado.SetValue(objPerfil.Estado);
+                sampleGrid.cpPerfil = "";
                 btnNuevo.SetEnabled(false);
                 btnGrabar.SetEnabled(false);
                 btnModificar.SetEnabled(true);
-                sampleGrid.cpProducto = null;
+                tbCodigo.GetInputElement().readOnly = true;
             }
         }
     </script>
@@ -175,7 +194,8 @@
                                     <EditFormLayoutProperties>
                                         <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="100" />
                                     </EditFormLayoutProperties>
-                                    <ClientSideEvents EndCallback="sampleGrid_EndCallback" />
+                                     <SettingsBehavior AllowSelectSingleRowOnly="true" AllowFocusedRow="true" AllowSelectByRowClick="true"  />
+                                    <ClientSideEvents EndCallback="sampleGrid_EndCallback" RowDblClick="sampleGrid_RowDblClick" />
                                     <Columns>
 
                                         <dx:GridViewCommandColumn ShowNewButtonInHeader="false" ShowDeleteButton="true" ShowEditButton="false" Width="15%" />
